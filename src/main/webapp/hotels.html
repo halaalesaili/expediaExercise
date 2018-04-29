@@ -1,0 +1,141 @@
+<html>
+<head>
+<link href='https://fonts.googleapis.com/icon?family=Material+Icons'
+	rel='stylesheet' />
+<script
+	src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'>
+	
+</script>
+<script src='js/hotelsApi.js'>
+	
+</script>
+<link rel="stylesheet" href="css/materialize.min.css" />
+<script src="js/materialize.min.js">
+	
+</script>
+<link type='text/css' rel='stylesheet' href='css/hotelsApiStyles.css' />
+<meta name='viewport' charset="utf-8"
+	content='width=device-width, initial-scale=1.0' />
+</head>
+<body>
+	<nav class="white">
+		<div class="nav-wrapper">
+			<ul class="hide-on-med-and-down right">
+				<li>
+					<div class=" input-field search-query">
+						<input type="text" id="destination" placeholder="destination"
+							class="autocomplete blue-text tooltipped" data-position="bottom" data-margin="2px" 
+							data-tooltip="will search hotel destination, street, regionID" />
+					</div>
+				</li>
+				<li>
+					
+					<div class=" input-field search-query border">
+
+						<input type="text" id="tripDate" placeholder="trip start date"
+							class="autocomplete blue-text tooltipped" data-position="bottom" data-margin="2px" 
+							data-tooltip="format of date must be 'year-month-day'" /><div class="vertical-divider" />
+					</div>
+
+				</li>
+				<li>
+					<div class="min-max">
+						<select id="start-date-order">
+							<option id="date-min" value="min" selected>min</option>
+							<option id="date-max" value="max">max</option>
+						</select>
+					</div>
+				</li>
+				<li>
+					<div class=" input-field search-query border">
+						<input type="text" id="stay" placeholder="length of stay"
+							class="autocomplete blue-text" /><div class="vertical-divider" />
+					</div>
+				</li>
+
+				<li>
+					<div class=" input-field search-query border">
+
+						<input type="text" id="guestRating" placeholder="guest rating"
+							class="autocomplete blue-text" /><div class="vertical-divider" />
+					</div>
+
+				</li>
+				<li>
+					<div class="min-max">
+						<select id="guest-rating-order">
+							<option id="guest-rating-min" value="min" selected>min</option>
+							<option id="guest-rating-max" value="max">max</option>
+						</select>
+					</div>
+				</li>
+
+				<li>
+					<div class=" input-field search-query border">
+
+						<input type="text" id="totalRating" placeholder="total rating"
+							class="autocomplete blue-text tooltipped" data-position="bottom" data-margin="2px" 
+							data-tooltip="searches hotelReviewTotal" /><div class="vertical-divider" />
+					</div>
+
+				</li>
+				<li>
+					<div class="min-max">
+						<select id="total-rating-order">
+							<option id="total-rating-min" value="min" selected>min</option>
+							<option id="total-rating-max" value="max">max</option>
+						</select>
+					</div>
+				</li>
+				<li>
+					<div class=" input-field search-query border">
+
+						<input type="text" id="starRating" placeholder="star rating"
+							class="autocomplete blue-text" /><div class="vertical-divider" />
+					</div>
+
+				</li>
+				<li>
+					<div class="min-max">
+						<select id="star-rating-order">
+							<option id="star-rating-min" value="min" selected>min</option>
+							<option id="star-rating-max" value="max">max</option>
+						</select>
+					</div>
+				</li>
+				<li>
+					<div class=" input-field search-query border">
+						<input type="text" id="price" placeholder="price"
+							class="autocomplete blue-text tooltipped" data-position="bottom" data-margin="2px"  
+							data-tooltip="total price" />
+							<div class="vertical-divider" />
+					</div>
+				</li>
+				<li>
+					<div class="min-max">
+						<select id="price-order">
+							<option id="price-min" value="min" selected>min</option>
+							<option id="price-max" value="max">max</option>
+						</select>
+					</div>
+				</li>
+				<li>
+					<button class="btn waves-effect waves-blue blue" onclick="search()">Search</button>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div id='hotels' class='row' />
+
+	<script>
+		$(document).ready(function() {
+			$('select').formSelect();
+		});
+		$(document).ready(function() {
+			$('.tooltipped').tooltip();
+		});
+		fetchHotelInfo();
+	</script>
+</body>
+</html>
